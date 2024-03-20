@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //activityComponent.component.inject(this)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -39,11 +37,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    /*override fun onDestroy() {
-        super.onDestroy()
-        if (isFinishing) {
-            ComponentStore.delete(activityComponent)
-        }
-    }*/
 }
