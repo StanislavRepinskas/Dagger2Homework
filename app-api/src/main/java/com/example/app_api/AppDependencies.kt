@@ -2,7 +2,7 @@ package com.example.app_api
 
 import android.content.Context
 
-interface AppComponentInterface {
+interface AppDependencies {
 
     @ApplicationContext
     fun provideApplicationContext(): Context

@@ -1,11 +1,13 @@
 package com.example.feature1
 
-import com.example.app_api.AppComponentInterface
+import com.example.app_api.AppDependencies
+import com.example.app_api.Feature4Dependencies
 import dagger.Component
 
 @Component(
     dependencies = [
-        AppComponentInterface::class
+        AppDependencies::class,
+        Feature4Dependencies::class
     ]
 )
 interface Feature1Component {
@@ -14,7 +16,8 @@ interface Feature1Component {
     @Component.Factory
     interface Factory {
         fun create(
-            appComponentInterface: AppComponentInterface
+            appDependencies: AppDependencies,
+            feature4Dependencies: Feature4Dependencies
         ): Feature1Component
     }
 }

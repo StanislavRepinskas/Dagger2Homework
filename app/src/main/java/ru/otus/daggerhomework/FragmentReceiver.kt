@@ -26,7 +26,7 @@ class FragmentReceiver : Fragment() {
         super.onAttach(context)
         DaggerFragmentReceiverComponent
             .factory()
-            .create((activity as MainActivity).activityComponent.component)
+            .create((activity as MainActivity).activityComponent)
             .inject(this)
     }
 

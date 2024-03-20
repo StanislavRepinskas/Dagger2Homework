@@ -3,7 +3,6 @@ package ru.otus.daggerhomework
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import com.example.feature1.Feature1Fragment
 import com.example.feature2.Feature2Fragment
 import ru.otus.daggerhomework.di.ActivityComponent
@@ -11,17 +10,16 @@ import ru.otus.daggerhomework.di.DaggerActivityComponent
 
 class MainActivity : AppCompatActivity() {
 
-    val activityComponent: ComponentHolder<ActivityComponent> by lazy(LazyThreadSafetyMode.NONE) {
-        ComponentStore.get("activity") {
-            DaggerActivityComponent.factory().create(
-                (applicationContext as App).appComponent,
-                this
-            )
-        }
+    val activityComponent: ActivityComponent by lazy(LazyThreadSafetyMode.NONE) {
+        DaggerActivityComponent.factory().create(
+            (applicationContext as App).getAppDependencies(),
+            this
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        activityComponent.component.inject(this)
+        //activityComponent.component.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -42,10 +40,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
         if (isFinishing) {
             ComponentStore.delete(activityComponent)
         }
-    }
+    }*/
 }

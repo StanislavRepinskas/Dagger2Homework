@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.app_api.AppComponentProvider
+import com.example.app_api.AppDependenciesProvider
 import com.example.app_api.ApplicationContext
+import com.example.app_api.Feature4DependenciesProvider
 import com.example.feature3.Feature3Interactor
 import javax.inject.Inject
 
@@ -25,7 +26,8 @@ class Feature1Fragment : Fragment() {
         super.onAttach(context)
 
         DaggerFeature1Component.factory().create(
-            (requireActivity().application as AppComponentProvider).getComponent()
+            (requireActivity().application as AppDependenciesProvider).getAppDependencies(),
+            (requireActivity().application as Feature4DependenciesProvider).getFeature4Dependencies()
         ).inject(this)
     }
 
@@ -38,7 +40,7 @@ class Feature1Fragment : Fragment() {
         view.setOnClickListener {
             Toast.makeText(
                 appContext,
-                "", //feature3Interactor.getSomething().toString(),
+                feature3Interactor.getSomething().toString(),
                 Toast.LENGTH_SHORT
             ).show()
         }

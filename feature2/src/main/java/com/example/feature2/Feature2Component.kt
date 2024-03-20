@@ -1,16 +1,16 @@
 package com.example.feature2
 
-import com.example.app_api.AppComponentInterface
+import com.example.app_api.AppDependencies
 import dagger.Component
 
 @Component(
-    dependencies = [AppComponentInterface::class]
+    dependencies = [AppDependencies::class]
 )
 interface Feature2Component {
     fun inject(fragment: Feature2Fragment)
 
     @Component.Factory
     interface Factory {
-        fun create(appComponentInterface: AppComponentInterface): Feature2Component
+        fun create(appDependencies: AppDependencies): Feature2Component
     }
 }

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.app_api.AppComponentProvider
+import com.example.app_api.AppDependenciesProvider
 import com.example.app_api.ApplicationContext
 import javax.inject.Inject
 
@@ -19,7 +19,7 @@ class Feature2Fragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         DaggerFeature2Component.factory().create(
-            (requireActivity().application as AppComponentProvider).getComponent()
+            (requireActivity().application as AppDependenciesProvider).getAppDependencies()
         ).inject(this)
     }
 
