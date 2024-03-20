@@ -1,10 +1,15 @@
 package ru.otus.daggerhomework
 
 import android.app.Application
+import com.example.app_api.AppComponentInterface
+import com.example.app_api.AppComponentProvider
 import ru.otus.daggerhomework.di.DaggerAppComponent
 
-class App : Application() {
+class App : Application(), AppComponentProvider {
     val appComponent = DaggerAppComponent.factory().create(this)
+    override fun getComponent(): AppComponentInterface {
+        return appComponent
+    }
 }
 
 object ComponentStore {
@@ -24,6 +29,7 @@ object ComponentStore {
         map.remove(componentHolder.key)
     }
 }
+
 data class ComponentHolder<T>(
     val key: String,
     val component: T

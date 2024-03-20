@@ -1,2 +1,8 @@
 include ':app'
 rootProject.name = "DaggerHomework"
+include ':feature1'
+include ':feature2'
+include ':feature3'
+include ':app-api'
+include ':feature4'
+include ':feature4-api'

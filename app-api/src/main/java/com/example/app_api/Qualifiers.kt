@@ -1,4 +1,4 @@
-package ru.otus.daggerhomework.di
+package com.example.app_api
 
 import javax.inject.Qualifier
 

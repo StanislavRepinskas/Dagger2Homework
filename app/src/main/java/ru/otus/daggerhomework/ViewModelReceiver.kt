@@ -9,7 +9,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 import ru.otus.daggerhomework.colorexchanger.ColorListener
-import ru.otus.daggerhomework.di.ApplicationContext
+import com.example.app_api.ApplicationContext
 import javax.inject.Inject
 
 class ViewModelReceiver @Inject constructor(

@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import ru.otus.daggerhomework.colorexchanger.ColorUpdater
-import ru.otus.daggerhomework.di.ActivityContext
+import com.example.app_api.ActivityContext
 import javax.inject.Inject
 
 class ViewModelProducer @Inject constructor(

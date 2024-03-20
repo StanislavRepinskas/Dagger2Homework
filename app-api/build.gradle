@@ -1,14 +1,14 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
 
 android {
+    namespace 'com.example.app_api'
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "ru.otus.daggerhomework"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 1
@@ -33,12 +33,6 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':app-api')
-    implementation project(path: ':feature1')
-    implementation project(path: ':feature2')
-    implementation project(path: ':feature3')
-    implementation project(path: ':feature4')
-    implementation project(path: ':feature4-api')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
