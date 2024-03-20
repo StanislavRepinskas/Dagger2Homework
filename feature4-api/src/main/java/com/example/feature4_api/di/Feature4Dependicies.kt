@@ -1,4 +1,4 @@
-package com.example.app_api
+package com.example.feature4_api.di
 
 import com.example.feature4_api.Feature4Repository
 

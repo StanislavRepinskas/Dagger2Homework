@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.app_api.AppDependenciesProvider
 import com.example.app_api.ApplicationContext
-import com.example.app_api.Feature4DependenciesProvider
+import com.example.feature4_api.di.Feature4DependenciesProvider
 import com.example.feature3.Feature3Interactor
 import javax.inject.Inject
 

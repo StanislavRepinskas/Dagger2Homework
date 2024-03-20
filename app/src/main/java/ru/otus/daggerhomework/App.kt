@@ -3,8 +3,8 @@ package ru.otus.daggerhomework
 import android.app.Application
 import com.example.app_api.AppDependencies
 import com.example.app_api.AppDependenciesProvider
-import com.example.app_api.Feature4Dependencies
-import com.example.app_api.Feature4DependenciesProvider
+import com.example.feature4_api.di.Feature4Dependencies
+import com.example.feature4_api.di.Feature4DependenciesProvider
 import ru.otus.daggerhomework.di.AppComponent
 import ru.otus.daggerhomework.di.DaggerAppComponent
 
