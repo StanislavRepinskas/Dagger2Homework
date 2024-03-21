@@ -5,8 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.feature1'
-
+    namespace 'com.example.feature3_api'
     compileSdkVersion 31
 
     defaultConfig {
@@ -35,17 +34,7 @@ android {
 
 dependencies {
     implementation project(path: ':app-api')
-
-
-    // --------------------------------------
-    // Проблемка. Например нам нужен интерактор из фичи3, но интерактору нужен репозиторий из фичи4
-    // Не хочется тащить за собой все зависимости которые нужны для инжекта интерактора.
-    // Решение, сделать апи модуль для интерактора.
-    //implementation project(path: ':feature3')
-    //implementation project(path: ':feature4-api')
-
-    implementation project(path: ':feature3-api')
-    // --------------------------------------
+    implementation project(path: ':feature4-api')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'

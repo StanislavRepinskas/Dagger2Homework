@@ -37,6 +37,7 @@ dependencies {
     implementation project(path: ':feature1')
     implementation project(path: ':feature2')
     implementation project(path: ':feature3')
+    implementation project(path: ':feature3-api')
     implementation project(path: ':feature4')
     implementation project(path: ':feature4-api')
 
