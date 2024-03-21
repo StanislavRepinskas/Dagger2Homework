@@ -2,7 +2,7 @@ package ru.otus.daggerhomework.di
 
 import android.content.Context
 import com.example.app_api.ActivityContext
-import com.example.app_api.AppDependencies
+import com.example.app_api.di.AppComponentDependencies
 import com.example.app_api.ApplicationContext
 import dagger.Binds
 import dagger.BindsInstance
@@ -15,14 +15,14 @@ import ru.otus.daggerhomework.colorexchanger.ColorExchangerImpl
 @ActivityScope
 @Component(
     modules = [ActivityModule::class],
-    dependencies = [AppDependencies::class]
+    dependencies = [AppComponentDependencies::class]
 )
 interface ActivityComponent {
 
     @Component.Factory
     interface Factory {
         fun create(
-            appComponent: AppDependencies,
+            appComponent: AppComponentDependencies,
             @BindsInstance
             @ActivityContext
             context: Context

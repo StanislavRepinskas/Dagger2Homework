@@ -1,12 +1,12 @@
 package ru.otus.daggerhomework.di
 
 import android.content.Context
-import com.example.app_api.AppDependencies
+import com.example.app_api.di.AppComponentDependencies
 import com.example.app_api.ApplicationContext
-import com.example.feature3.Feature3Module
-import com.example.feature3_api.di.Feature3Dependencies
-import com.example.feature4_api.di.Feature4Dependencies
-import com.example.feature4.Feature4Module
+import com.example.feature3.di.Feature3Module
+import com.example.feature3_api.di.Feature3ComponentDependencies
+import com.example.feature4_api.di.Feature4ComponentDependencies
+import com.example.feature4.di.Feature4Module
 import dagger.BindsInstance
 import dagger.Component
 
@@ -17,9 +17,9 @@ import dagger.Component
     ]
 )
 interface AppComponent :
-    AppDependencies,
-    Feature3Dependencies,
-    Feature4Dependencies {
+    AppComponentDependencies,
+    Feature3ComponentDependencies,
+    Feature4ComponentDependencies {
 
     @Component.Factory
     interface Factory {

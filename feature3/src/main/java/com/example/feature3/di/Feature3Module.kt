@@ -1,7 +1,7 @@
-package com.example.feature3
+package com.example.feature3.di
 
+import com.example.feature3.Feature3InteractorImpl
 import com.example.feature3_api.Feature3Interactor
-import com.example.feature4_api.Feature4Repository
 import dagger.Binds
 import dagger.Module
 

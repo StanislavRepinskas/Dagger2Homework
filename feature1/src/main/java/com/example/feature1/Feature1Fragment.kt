@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.app_api.AppDependenciesProvider
 import com.example.app_api.ApplicationContext
+import com.example.app_api.di.AppComponentDependencies
+import com.example.feature1.di.DaggerFeature1Component
 import com.example.feature3_api.Feature3Interactor
-import com.example.feature3_api.di.Feature3DependenciesProvider
+import com.example.feature3_api.di.Feature3ComponentDependencies
 import javax.inject.Inject
 
 class Feature1Fragment : Fragment() {
@@ -26,8 +27,8 @@ class Feature1Fragment : Fragment() {
         super.onAttach(context)
 
         DaggerFeature1Component.factory().create(
-            (requireActivity().application as AppDependenciesProvider).getAppDependencies(),
-            (requireActivity().application as Feature3DependenciesProvider).getFeature3Dependencies()
+            (requireActivity().application as AppComponentDependencies.Provider).getAppComponentDependencies(),
+            Feature3ComponentDependencies.componentDependencies
         ).inject(this)
     }
 
