@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.createViewModelLazy
@@ -18,18 +19,7 @@ import com.example.feature3_api.Feature3Interactor
 import com.example.feature3_api.di.Feature3ComponentDependencies
 import javax.inject.Inject
 
-open class BaseFragment : Fragment() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-}
-
-inline fun <reified VM : ViewModel> BaseFragment.baseViewModels(
-    noinline ownerProducer: () -> ViewModelStoreOwner = { this },
-    noinline factoryProducer: (() -> ViewModelProvider.Factory)? = { viewModelFactory }
-): Lazy<VM> = createViewModelLazy(VM::class, { ownerProducer().viewModelStore }, factoryProducer)
-
-class Feature1Fragment : BaseFragment() {
+class Feature1OtherFragment : BaseFragment() {
 
     @Inject
     @ApplicationContext
@@ -39,7 +29,7 @@ class Feature1Fragment : BaseFragment() {
     lateinit var feature3Interactor: Feature3Interactor
 
 
-    private val viewModel: Feature1ViewModel by baseViewModels()
+    private val viewModel: Feature1OtherViewModel by baseViewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -57,6 +47,7 @@ class Feature1Fragment : BaseFragment() {
     ): View? {
         println("TEST! viewModel.value=${viewModel.value}")
         val view = inflater.inflate(R.layout.fragment_feature1, container, false)
+        view.findViewById<TextView>(R.id.textView).text = "OtherFragment1"
         view.setOnClickListener {
             Toast.makeText(
                 appContext,
